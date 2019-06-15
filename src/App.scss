@@ -1,0 +1,15 @@
+.App {
+  text-align: center;
+}
+
+.header {
+  background: white;
+  height: 60px;
+  display: flex;
+  .logo {
+    height: 60px;
+  }
+}
+.map {
+  height: calc(100vh - 60px);
+}
