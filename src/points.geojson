@@ -1,0 +1,19 @@
+﻿{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "title": "McDonalds",
+        "description": ""
+      },
+      "geometry": {
+        "coordinates": [
+          44.77890197940414,
+           41.718788789145634
+        ],
+        "type": "Point"
+      }
+    }
+  ],
+  "type": "FeatureCollection"
+}
