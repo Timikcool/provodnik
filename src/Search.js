@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-
+import './Search.scss';
 export default class Search extends Component {
     render() {
         return (
-            <div>
+            <div className="search">
                 <input></input>
             </div>
         )

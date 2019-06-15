@@ -6,8 +6,24 @@
   background: white;
   height: 60px;
   display: flex;
+  justify-content: space-between;
   .logo {
     height: 60px;
+  }
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    a {
+      text-decoration: none;
+      color: black;
+      padding: 0 10px;
+      font-weight: 600;
+      &.active {
+        color:rgb(0, 0, 238);
+      }
+    }
   }
 }
 .map {

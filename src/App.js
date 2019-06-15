@@ -1,5 +1,5 @@
 import React from 'react';
-import mapboxgl from 'mapbox-gl';
+import {BrowserRouter, NavLink, Route } from 'react-router-dom'
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'mapbox-gl/dist/svg/mapboxgl-ctrl-compass.svg';
 import 'mapbox-gl/dist/svg/mapboxgl-ctrl-geolocate.svg';
@@ -8,46 +8,29 @@ import 'mapbox-gl/dist/svg/mapboxgl-ctrl-zoom-out.svg';
 import logo from './logo.svg' ;
 
 import './App.scss';
+import Map from './Map';
 
 class App extends React.Component {
-  state = {
-    map: {}
-  };
+
   render() {
     return (
+      <BrowserRouter>
       <div className="app">
         <header className="header">
           <img src={logo} className="logo" />
-          <nav>
-            <a>About us</a>
-            <a>Volunteers</a>
-            <a>Contacts</a>
-            <a>Join</a>
-            <a>Login</a>
+          <nav className="nav">
+            <NavLink to="/" activeClassName="active">Map</NavLink>
+            <NavLink to="/faq" activeClassName="active">About us</NavLink>
+            <NavLink to="/volunteers" activeClassName="active">Volunteers</NavLink>
+            <NavLink to="/contacts" activeClassName="active">Contacts</NavLink>
+            <NavLink to="/join" activeClassName="active">Join</NavLink>
+            <NavLink to="/login" activeClassName="active">Log in</NavLink>
           </nav>
           </header>
-        <div className="map" id="map" />
+          <Route path="/" component={Map} />
       </div>
+      </BrowserRouter>
     );
-  }
-  componentDidMount() {
-    mapboxgl.accessToken =
-      'pk.eyJ1IjoidGltaWtjb29sIiwiYSI6ImNqd3gyeHI1ODBvMDY0M3J6dHNoZGtoeDgifQ.9HL1O6diAw5_eE8qhAfUCA';
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v11',
-      center: [44.77771644303229, 41.71912112932134], // starting position
-      zoom: 17 // starting zoom
-    });
-    map.addControl(new mapboxgl.NavigationControl());
-    map.addControl(new mapboxgl.GeolocateControl({
-      positionOptions: {
-      enableHighAccuracy: true
-      },
-      trackUserLocation: true
-      }));
-    map.on('click', (ev) => console.log(ev));
-    this.setState({ map });
   }
 }
 
