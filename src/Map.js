@@ -50,6 +50,47 @@ export default class Map extends Component {
               </div>
             ))}
           </div>
+          <div className="legend">
+              <section className="wheelchairs">
+                  <ul>
+                      <li className="green">
+                          <span>Avaliable</span> for wheelchairs
+                      </li>
+                      <li className="yellow">
+                          <span>Partially avaliable</span> for wheelchairs
+                      </li>
+                      <li className="red">
+                          <span>Unavaliable</span> for wheelchairs
+                      </li>
+                  </ul>
+              </section>
+              <section className="stroller">
+              <ul>
+                      <li className="green">
+                          <span>Avaliable</span> for stroller
+                      </li>
+                      <li className="yellow">
+                          <span>Partially avaliable</span> for stroller
+                      </li>
+                      <li className="red">
+                          <span>Unavaliable</span> for stroller
+                      </li>
+                  </ul>
+              </section>
+              <section className="crutches">
+              <ul>
+                      <li className="green">
+                          <span>Avaliable</span> for crutches
+                      </li>
+                      <li className="yellow">
+                          <span>Partially avaliable</span> for crutches
+                      </li>
+                      <li className="red">
+                          <span>Unavaliable</span> for crutches
+                      </li>
+                  </ul>
+              </section>
+          </div>
         </div>
         <div className="map" id="map" />
       </React.Fragment>
@@ -104,10 +145,4 @@ export default class Map extends Component {
       });
     this.setState({ map });
   }
-  //   search({ target }) {
-  //     const text = target.value;
-  //     axios
-  //       .get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${text}.json`)
-  //       .then(res => console.log(res));
-  //   }
 }
