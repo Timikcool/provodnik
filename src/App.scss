@@ -1,3 +1,4 @@
+$blue: rgb(0, 0, 238);
 .app {
   text-align: center;
   position: relative;
@@ -22,7 +23,7 @@
       padding: 0 10px;
       font-weight: 600;
       &.active {
-        color:rgb(0, 0, 238);
+        color: $blue;
       }
     }
   }
@@ -32,6 +33,39 @@
 }
 .search {
   position: absolute;
+  top: 130px;
+  left: 10px;
+  width: 350px;
+  border-radius: 6px;
   display: flex;
   z-index: 5;
+  background: white;
+  min-height: 60px; 
+  img {
+    height: 25px;
+    padding: 0 5px;
+  }
+  .options {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .option {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 100px;
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.16);
+    &.active {
+      background: $blue;
+      color: white;
+    }
+    &:hover {
+      background: $blue;
+      color: white;
+      cursor: pointer;
+    }
+  }
 }

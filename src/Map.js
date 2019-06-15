@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
 import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
@@ -10,17 +10,54 @@ import 'mapbox-gl/dist/svg/mapboxgl-ctrl-zoom-out.svg';
 import axios from 'axios';
 export default class Map extends Component {
   state = {
-    map: {}
+    map: {},
+    options: [
+      'authorities',
+      'education',
+      'food',
+      'health',
+      'hotels',
+      'leisure',
+      'money',
+      'shopping',
+      'sport',
+      'toilets',
+      'tourism',
+      'transport'
+    ],
+    activeOption: ''
   };
   render() {
     return (
       <React.Fragment>
         <div className="search">
-          <input className="input" onChange={this.search} />
+          <div className="options" onClick={ev => this.setActiveOption(ev)}>
+            {this.state.options.map(option => (
+              <div
+                className={`option ${option} ${
+                  this.state.activeOption === option ? 'active ' : ''
+                }`}
+              >
+                {this.state.activeOption === option ? (
+                  <img src={process.env.PUBLIC_URL + `/icons/${option}-active.svg`} alt={option} />
+                ) : (
+                  <img
+                    src={process.env.PUBLIC_URL + `/icons/${option}.svg`}
+                    alt={option}
+                  />
+                )}
+                {option.charAt(0).toUpperCase() + option.slice(1)}
+              </div>
+            ))}
+          </div>
         </div>
         <div className="map" id="map" />
       </React.Fragment>
     );
+  }
+  setActiveOption({ target }) {
+    console.log(target);
+    this.setState({ activeOption: target.classList[1]});
   }
   componentDidMount() {
     mapboxgl.accessToken =
@@ -40,17 +77,20 @@ export default class Map extends Component {
         trackUserLocation: true
       })
     );
-    map.addControl(new MapboxGeocoder({
+    map.addControl(
+      new MapboxGeocoder({
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl
-        }), 'top-left');
+      }),
+      'top-left'
+    );
     map.on('click', ev => console.log(ev));
     this.setState({ map });
   }
-  search({ target }) {
-    const text = target.value;
-    axios
-      .get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${text}.json`)
-      .then(res => console.log(res));
-  }
+  //   search({ target }) {
+  //     const text = target.value;
+  //     axios
+  //       .get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${text}.json`)
+  //       .then(res => console.log(res));
+  //   }
 }
