@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
 import mapboxgl from 'mapbox-gl';
+import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder';
+import '@mapbox/mapbox-gl-geocoder/dist/mapbox-gl-geocoder.css';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import 'mapbox-gl/dist/svg/mapboxgl-ctrl-compass.svg';
 import 'mapbox-gl/dist/svg/mapboxgl-ctrl-geolocate.svg';
 import 'mapbox-gl/dist/svg/mapboxgl-ctrl-zoom-in.svg';
 import 'mapbox-gl/dist/svg/mapboxgl-ctrl-zoom-out.svg';
-import Search from './Search';
+import axios from 'axios';
 export default class Map extends Component {
   state = {
     map: {}
   };
   render() {
     return (
-    <React.Fragment>
-    <Search />
-    <div className="map" id="map" />
-    </React.Fragment>);
+      <React.Fragment>
+        <div className="search">
+          <input className="input" onChange={this.search} />
+        </div>
+        <div className="map" id="map" />
+      </React.Fragment>
+    );
   }
   componentDidMount() {
     mapboxgl.accessToken =
@@ -35,7 +40,17 @@ export default class Map extends Component {
         trackUserLocation: true
       })
     );
+    map.addControl(new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl
+        }), 'top-left');
     map.on('click', ev => console.log(ev));
     this.setState({ map });
+  }
+  search({ target }) {
+    const text = target.value;
+    axios
+      .get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${text}.json`)
+      .then(res => console.log(res));
   }
 }

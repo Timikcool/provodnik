@@ -1,5 +1,6 @@
-.App {
+.app {
   text-align: center;
+  position: relative;
 }
 
 .header {
@@ -28,4 +29,9 @@
 }
 .map {
   height: calc(100vh - 60px);
+}
+.search {
+  position: absolute;
+  display: flex;
+  z-index: 5;
 }
