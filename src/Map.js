@@ -80,13 +80,13 @@ export default class Map extends Component {
               <section className="crutches">
               <ul>
                       <li className="green">
-                          <span>Avaliable</span> for crutches
+                          <span>Avaliable </span> for crutches
                       </li>
                       <li className="yellow">
-                          <span>Partially avaliable</span> for crutches
+                          <span>Partially avaliable </span> for crutches
                       </li>
                       <li className="red">
-                          <span>Unavaliable</span> for crutches
+                          <span>Unavaliable </span> for crutches
                       </li>
                   </ul>
               </section>
@@ -139,7 +139,7 @@ export default class Map extends Component {
       
         var popup = new mapboxgl.Popup({ offset: [0, -15] })
           .setLngLat(feature.geometry.coordinates)
-          .setHTML('<h3">' + feature.properties.name + '</h3><p>' + feature.properties.aviability + '</p>')
+          .setHTML(`<h3> Name: ${feature.properties.name}</h3><p> Aviability: ${feature.properties.aviability}</p><a href=${feature.properties.link}>${feature.properties.link}<a/>`)
           .setLngLat(feature.geometry.coordinates)
           .addTo(map);
       });

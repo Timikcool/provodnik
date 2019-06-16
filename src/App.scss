@@ -1,4 +1,7 @@
 $blue: rgb(0, 0, 238);
+.mapboxgl-popup-content {
+  width: fit-content;
+}
 .app {
   text-align: center;
   position: relative;
@@ -136,6 +139,7 @@ $blue: rgb(0, 0, 238);
     }
     span {
       font-weight: 600;
+      padding-right: 5px;
     }
   }
 }
