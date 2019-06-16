@@ -1,0 +1,117 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "aviability": "medium",
+        "name": "Spar Shop",
+        "link": "https://spargeorgia.com/"
+      },
+      "geometry": {
+        "coordinates": [
+          44.778619,
+          41.719988
+        ],
+        "type": "Point"
+      },
+      "id": "1e9094c17ebee49b053ad0c34f6b4a10"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Magti",
+        "aviability": "medium",
+        "link": "https://www.magticom.ge/"
+      },
+      "geometry": {
+        "coordinates": [
+          44.776873,
+          41.719003
+        ],
+        "type": "Point"
+      },
+      "id": "3ef00e2411dc5f49d2abd8c8b1db986b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Tech University",
+        "aviability": "bad"
+      },
+      "geometry": {
+        "coordinates": [
+          44.778623,
+          41.719154
+        ],
+        "type": "Point"
+      },
+      "id": "4cd710bf1734ced05abe2b9408820e5b"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Casino Adjara",
+        "aviability": "bad",
+        "link": "http://casinoadjara.com/"
+      },
+      "geometry": {
+        "coordinates": [
+          44.777752,
+          41.719549
+        ],
+        "type": "Point"
+      },
+      "id": "51d51d4e453f60b853526acaa2cc8e90"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Baldi",
+        "aviability": "good",
+        "link": "https://ru.baldishoes.am/"
+      },
+      "geometry": {
+        "coordinates": [
+          44.776403,
+          41.719518
+        ],
+        "type": "Point"
+      },
+      "id": "5664823d9a6caa52ef237194f34d2f9a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Holiday Inn",
+        "aviability": "good",
+        "link": "https://www.ihg.com/holidayinn/hotels/ru/ru/tbilisi/tbsms/hoteldetail"
+      },
+      "geometry": {
+        "coordinates": [
+          44.777769,
+          41.719126
+        ],
+        "type": "Point"
+      },
+      "id": "ac362fbd7c08522e01708385b51d2ed4"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "McDonalds",
+        "description": "",
+        "aviability": "medium",
+        "link": "https://mcdonalds.ge/"
+      },
+      "geometry": {
+        "coordinates": [
+          44.778901,
+          41.718788
+        ],
+        "type": "Point"
+      },
+      "id": "f683212e0e7587c293b51b8e470d45be"
+    }
+  ],
+  "type": "FeatureCollection"
+}

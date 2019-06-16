@@ -9,6 +9,7 @@ import logo from './logo.svg' ;
 
 import './App.scss';
 import Map from './Map';
+import Volunteers from './Volunteers';
 
 class App extends React.Component {
 
@@ -19,7 +20,7 @@ class App extends React.Component {
         <header className="header">
           <img src={logo} className="logo" />
           <nav className="nav">
-            <NavLink to="/" activeClassName="active">Map</NavLink>
+            <NavLink to="/" exact activeClassName="active">Map</NavLink>
             <NavLink to="/faq" activeClassName="active">About us</NavLink>
             <NavLink to="/volunteers" activeClassName="active">Volunteers</NavLink>
             <NavLink to="/contacts" activeClassName="active">Contacts</NavLink>
@@ -27,7 +28,8 @@ class App extends React.Component {
             <NavLink to="/login" activeClassName="active">Log in</NavLink>
           </nav>
           </header>
-          <Route path="/" component={Map} />
+          <Route path="/" exact component={Map} />
+          <Route path="/volunteers" component={Volunteers} />
       </div>
       </BrowserRouter>
     );

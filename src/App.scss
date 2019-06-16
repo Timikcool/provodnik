@@ -6,6 +6,11 @@ $blue: rgb(0, 0, 238);
   text-align: center;
   position: relative;
 }
+.editor {
+  .mapboxgl-canvas-container {
+    cursor: crosshair !important;
+  }
+}
 
 .header {
   background: white;
@@ -33,6 +38,26 @@ $blue: rgb(0, 0, 238);
 }
 .map {
   height: calc(100vh - 60px);
+}
+.add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  /* top: 130px; */
+  left: 10px;
+  width: 350px;
+  z-index: 6;
+  bottom: 30px;
+  text-align: center;
+  background: white;
+  height: 45px;
+  color: #0000ee;
+  border-radius: 6px;
+  font-weight: bold;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .search {
   position: absolute;
